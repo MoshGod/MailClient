@@ -1,0 +1,41 @@
+/* user_login.wxss */
+.bg{
+  z-index: -1;
+  left:0;
+  position: fixed;
+}
+.welcometitle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:30px
+}
+.welcome{
+  position:relative;
+  left: 36rpx; 
+  top: -4rpx;
+  font-weight:bold;
+  color: rgb(8, 8, 8);
+}
+.input{
+  position: relative; 
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:60px
+}
+.inputframe{
+  height: 50%;
+  border:1rpx ;
+  BACKGROUND-COLOR: rgb(255,255,255);
+}
+.btn{
+  position: relative; 
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:60px
+}

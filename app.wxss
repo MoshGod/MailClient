@@ -1,0 +1,29 @@
+/**app.wxss**/
+@font-face {
+  font-family: "iconfont"; /* Project id 2527559 */
+  src: url('//at.alicdn.com/t/font_2527559_8zef4myebkj.woff2?t=1620226064123') format('woff2'),
+       url('//at.alicdn.com/t/font_2527559_8zef4myebkj.woff?t=1620226064123') format('woff'),
+       url('//at.alicdn.com/t/font_2527559_8zef4myebkj.ttf?t=1620226064123') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mail:before {
+  content: "\e615";
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 

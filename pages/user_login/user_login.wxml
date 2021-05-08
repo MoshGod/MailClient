@@ -1,0 +1,24 @@
+<!--pages/user_login/user_login.wxml-->
+<view class="main">
+  <image class="bg sd" style="height:100%; width:100%" src="../static/imgs/background.png"></image>
+  <view class="welcometitle">
+    <text class="iconfont icon-mail"></text>
+    <text class="welcome">欢迎使用我们的邮箱系统</text>
+  </view>
+  <form bindsubmit="formSumbit" bindreset="formRest"> 
+    <view class="input" style="top:{{windowHeight/3}}rpx">
+      <text style="color: rgb(255, 255, 255)">账号：</text>
+      <input class="inputframe" type='text' name="account" placeholder='请输入您的账号'/>
+      <text class="inputframe"></text>
+    </view>
+    <view class="input" style="top:{{windowHeight/3}}rpx">
+      <text style="color: rgb(255, 255, 255)">密码：</text>
+      <input class="inputframe" password="true"  name="password" placeholder='请输入登录密码'/>
+    </view>
+    <view class="btn" style="top:{{windowHeight/3}}rpx">
+      <button style="margin-left: 20%;" size="mini" form-type="reset">注册</button>
+      <button style="margin-right: 20%;" size="mini" form-type="submit" type="primary">登录</button>
+    </view>
+  </form>
+</view>
+
