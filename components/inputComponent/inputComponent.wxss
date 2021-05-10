@@ -1,0 +1,15 @@
+/* components/inputComponent/inputComponent.wxss */
+.input{
+  display: flex;
+  align-items:center;
+  justify-content:flex-end;
+  width:100%;
+  height:60px
+}
+.inputframe{
+  width: 60%;
+  height: 50%;
+  border:5rpx ;
+  margin-right: 15%;
+  BACKGROUND-COLOR: rgb(255,255,255);
+}
