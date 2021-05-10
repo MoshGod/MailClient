@@ -13,8 +13,9 @@
 }
 .welcome{
   position:relative;
-  left: 36rpx; 
-  top: -4rpx;
+  font-size: 40rpx;
+  left: 5rpx;
+  top: 0rpx;
   font-weight:bold;
   color: rgb(8, 8, 8);
 }
