@@ -1,2 +1,23 @@
 <!--pages/sign_up/sign_up.wxml-->
-<text>pages/sign_up/sign_up.wxml</text>
+<view class="main">
+  <image class="bg sd" style="height:100%; width:100%" src="../static/imgs/background.png"></image>
+  <view class="welcometitle">
+    <icon class="iconfont icon-mail"></icon>
+    <text class="welcome">欢迎使用我们的邮箱系统</text>
+  </view>
+  <view class='welcometitle'style='top:{{windowHeight/4}}rpx'>
+    <text class="welcome">创建一个用户</text>
+  </view>
+  
+  <form bindsubmit="formSumbit" bindreset="formRest"> 
+    <!-- inputName是input框的名字，与数据绑定 -->
+    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" name="账号" inputName='account' placeholder='请输入您的账号'></inputComponent>
+    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" name="密码" inputName='pass1' isPassword='true' placeholder='请输入登录密码'></inputComponent>
+    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" name="确认密码" inputName='pass2' isPassword='true' placeholder='请确认登录密码'></inputComponent>
+    <view class="btn" style="top:{{windowHeight/3}}rpx">
+      <button form-type="submit" type="primary">注册</button>
+    </view>
+  </form>
+</view>
+
+

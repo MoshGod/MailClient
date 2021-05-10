@@ -1,1 +1,30 @@
 /* pages/sign_up/sign_up.wxss */
+.bg{
+  z-index: -1;
+  left:0;
+  position: fixed;
+}
+.welcometitle{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:30px
+}
+.welcome{
+  position:relative;
+  font-size: 40rpx;
+  left: 5rpx;
+  top: 0rpx;
+  font-weight:bold;
+  color: rgb(8, 8, 8);
+}
+.btn{
+  position: relative; 
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height:60px
+}
