@@ -10,11 +10,14 @@ Page({
     windowHeight:'',
     windowWidth:'',
   },
-
+  formSumbit: function (e){
+    console.log("点击注册按钮");
+    console.log(e.detail);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     this.setData({
       windowWidth:app.globalData.windowWidth,
       windowHeight:app.globalData.windowHeight
