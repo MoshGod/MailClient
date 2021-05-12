@@ -7,12 +7,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    username:'',
+    pass1:'',
+    pass2:'',
     windowHeight:'',
     windowWidth:'',
   },
-  formSumbit: function (e){
+  username_input: function (e){
+    this.setData({
+      username:e.detail.value,
+    })
+  },
+  pass1_input: function (e){
+    this.setData({
+      pass1:e.detail.value,
+    })
+  },
+  pass2_input: function (e){
+    this.setData({
+      pass2:e.detail.value,
+    })
+  },
+  sign_up: function (e){
     console.log("点击注册按钮");
-    console.log(e.detail);
+    console.log(this.data);
+    this.setData({
+      username:'',
+      pass1:'',
+      pass2:'',
+    })
+  },
+  formSumbit: function (e){
   },
   /**
    * 生命周期函数--监听页面加载

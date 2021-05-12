@@ -1,5 +1,4 @@
 {
-  "usingComponents": {
-    "inputComponent": "/components/inputComponent/inputComponent"
-  }
+  "usingComponents": {},
+  "disableScroll": true
 }

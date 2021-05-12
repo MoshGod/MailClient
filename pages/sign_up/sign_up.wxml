@@ -9,15 +9,22 @@
     <text class="welcome">创建一个用户</text>
   </view>
   
-  <form bindsubmit="formSumbit" bindreset="formRest"> 
-    <!-- name是input框的名字，与数据绑定 -->
-    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" title_name="账号" name='account' placeholder='请输入您的账号'></inputComponent>
-    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" title_name="密码" name='pass1' isPassword='true' placeholder='请输入登录密码'></inputComponent>
-    <inputComponent style="position:relative; top:{{windowHeight/3}}rpx" title_name="确认密码" name='pass2' isPassword='true' placeholder='请确认登录密码'></inputComponent>
-    <view class="btn" style="top:{{windowHeight/3}}rpx">
-      <button form-type="submit" type="primary">注册</button>
-    </view>
-  </form>
+  <!-- name是input框的名字，与数据绑定 -->
+  <view class="input1" style="top:{{windowHeight/3}}rpx">
+    <text style="color: rgb(255, 255, 255)">账号：</text>
+    <input class="inputframe" type='text' value="{{username}}" bindinput='username_input' placeholder='请输入您的账号'/>
+  </view>
+  <view class="input2" style="top:{{windowHeight/3}}rpx">
+    <text style="color: rgb(255, 255, 255)">密码：</text>
+    <input class="inputframe" password="true" value="{{pass1}}" bindinput='pass1_input' placeholder='请输入登录密码'/>
+  </view>
+  <view class="input3" style="top:{{windowHeight/3}}rpx">
+    <text style="color: rgb(255, 255, 255)">确认密码：</text>
+    <input class="inputframe" password="true" value="{{pass2}}" bindinput='pass2_input' placeholder='请确认登录密码'/>
+  </view>
+  <view class="btn" style="top:{{windowHeight/3}}rpx">
+    <button type="primary" bindtap='sign_up'>注册</button>
+  </view>
 </view>
 
 
