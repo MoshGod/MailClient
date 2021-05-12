@@ -6,16 +6,20 @@ Page({
     windowHeight:'',
     windowWidth:''
   },
-  formSumbit:function (e) {
-    console.log("点击登录按钮");
-    console.log(e.detail.value);
+  account_input: function(e) {
     this.setData({
-      username: e.detail.value.account,
-      password: e.detail.value.password,
+      username: e.detail.value,
     })
+  },
+  pass_input: function(e) {
+    this.setData({
+      password: e.detail.value,
+    })
+  },
+  log_in: function (e) {
+    console.log("点击登录按钮"+this.data.username+' '+this.data.password);
     var that = this;
     console.log(app.globalData.serverIp + 'signin/')
-
     let str = ''
     for (let key in that.data) {
         str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + key + '"' + '\r\n' + '\r\n' + that.data[key] +
@@ -56,7 +60,7 @@ Page({
     })
   },
   
-  formRest:function () {
+  sign_up:function () {
     console.log("点击了注册");
     wx.redirectTo({
       url: '../sign_up/sign_up',

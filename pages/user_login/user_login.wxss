@@ -19,17 +19,27 @@
   font-weight:bold;
   color: rgb(8, 8, 8);
 }
-.input{
+.input1{
   position: relative; 
   display: flex;
   align-items:center;
-  justify-content:center;
+  justify-content:flex-end;
+  width:100%;
+  height:60px
+}
+.input2{
+  position: relative; 
+  display: flex;
+  align-items:center;
+  justify-content:flex-end;
   width:100%;
   height:60px
 }
 .inputframe{
+  width: 60%;
   height: 50%;
-  border:1rpx ;
+  border:5rpx ;
+  margin-right: 15%;
   BACKGROUND-COLOR: rgb(255,255,255);
 }
 .btn{
