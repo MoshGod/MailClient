@@ -20,6 +20,22 @@ Page({
     console.log("点击登录按钮"+this.data.username+' '+this.data.password);
     var that = this;
     console.log(app.globalData.serverIp + 'signin/')
+    // 校验表单是否填写完整
+    if (that.data.username == "" || that.data.password == "" ){
+      wx.showModal({
+        title: '错误',
+        content: '请填写完整所有信息',
+        success: function (e) {
+          if (e.confirm) {
+              that.setData({
+                username: '',
+                password: ''
+              })
+          }
+        }
+      })
+      return
+    }
     let str = ''
     for (let key in that.data) {
         str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + key + '"' + '\r\n' + '\r\n' + that.data[key] +
@@ -44,12 +60,14 @@ Page({
       },
       fail: function (res) {
         console.log("登录失败");
-        wx.showToast({
-          title: '登录失败',
-          icon: 'none',
-          duration: 1000,
-          mask: true
-        })
+          wx.showToast({
+            title: '登录失败，请验证登录信息是否正确',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          })
+        that.data.username = ''
+        that.data.password = ''
       }
     })
   },
