@@ -1,0 +1,14 @@
+<view style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+  <view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+    <view wx:if="{{showIcon}}" class="title-bar">
+      <view class="setting" bindtap="headerSet">
+        <i class="iconfont icon-setting"></i>
+      </view>
+      <view class="line"></view>
+      <view class="write" bindtap="headerWrite">
+        <i class="iconfont icon-write"></i>
+      </view>
+    </view>
+    <view class="header-title">{{title}}</view>
+  </view>
+</view>

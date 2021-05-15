@@ -1,0 +1,43 @@
+<!--pages/inbox/inbox.wxml-->
+<navigation id='Navigation' title="收件箱"/>
+<view style="potision: flex; height: {{windowHeight}}px;">
+  <scroll-view scroll-y="true" style="height: 100vh;">
+    <scroll-view scroll-x="true" class="nav " style="top: {{margin_top}}px">
+    <!-- 导航栏 -->
+      <view class='topTabSwiper'>
+        <view class='tab1' data-current="0" bindtap='checkCurrent'>
+          <view data-current="0" class='{{currentData == 0 ? "tab-title-select" : "tab-title"}}'>全部</view>
+          <view class='{{currentData == 0 ? "tab-line" : ""}}' data-current="0"></view>
+        </view>
+        <view class='tab2' data-current="1" bindtap='checkCurrent'>
+          <view data-current="1" class='{{currentData == 1 ? "tab-title-select" : "tab-title"}}'>未读</view>
+          <view class='{{currentData == 1 ? "tab-line" : ""}}' data-current="1"></view>
+        </view>
+      </view>
+
+    </scroll-view>
+
+    <!-- 切换0全部的内容 -->
+    <view class='one-page' wx:if="{{currentData==0}}">
+      <view bindtap="click" wx:for="{{rev_mail_list}}" wx:key="index" id="{{index}}">
+        <view class="mail-item" >
+          <view class="isRead-sender">
+            <view class='not-read' wx:if="{{!item.isRead}}" style="color: red">(未读)</view>
+            <text>{{item.sender}}</text>
+          </view>
+          <text class="subject">{{item.subject}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 切换1未读的内容 -->
+    <view class='two-page' wx:if="{{currentData==1}}">
+      <view bindtap="click" wx:for="{{rev_mail_list}}" wx:key="index" id="{{index}}">
+        <view class='{{item.isRead?"not-read-item" : "mail-item" }}'>
+          <text>{{item.sender}}</text>
+          <text class="subject">{{item.subject}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
