@@ -5,14 +5,6 @@ page {
   height: auto;
   background: rgb(245, 245, 245);
 }
-.swiper-home {
-  height: 30vh;
-  width: 100%;
-}
-.block-box {
-  height: 30vh;
-  width: 100%;
-}
 .nav {
   position: fixed;
   left: 0;

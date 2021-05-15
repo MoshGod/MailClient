@@ -7,6 +7,7 @@ Page({
    */
   data: {
     margin_top: 0,
+    windowHeight: 0,
 
     autoplay: false, //是否自动播放
     circular: true, //是否采用衔接滑动
@@ -73,6 +74,10 @@ Page({
   click: function (e) { 
     console.log("按了：", e.currentTarget.id)
     console.log(this.data.rev_mail_list[e.currentTarget.id])
+    //暫時先這樣
+    wx.navigateTo({
+       url: '/pages/mail-item/mail-item',
+     })
   },
   //全部与未读的点击切换，滑块index赋值
   checkCurrent: function(e) {

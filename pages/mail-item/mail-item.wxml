@@ -1,0 +1,11 @@
+<!--pages/inbox/inbox.wxml-->
+<navigation id='Navigation' bind:syncEnsure="onSyncEnsure" />
+<view style="display: flex;flex-direction: column; height: {{windowHeight}}px;">
+  <modal title="对话框" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm"
+    bindcancel="modalBindcancel">
+    {{data.showWindows.Content}}
+  </modal>
+  <text class='subject'>{{mailItem.subject}}</text>
+  <text class='sender'>发件人：{{mailItem.sender}}</text>
+  <text class='content'>{{mailItem.content}}</text>
+</view>
