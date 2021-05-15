@@ -29,11 +29,12 @@ Component({
 
   methods: {//to be modified
     headerSet() {
-      wx.navigateBack({
-      })
+      // wx.navigateBack({
+      // })
     },
     headerWrite() {
-      wx.switchTab({
+      wx.navigateTo({
+        url: '/pages/submit-mail/submit-mail'
       })
     }
   }

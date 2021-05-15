@@ -5,7 +5,8 @@
     "pages/sign_up/sign_up",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/mail-item/mail-item"
+    "pages/mail-item/mail-item",
+    "pages/submit-mail/submit-mail"
   ],
   "window": {
     "backgroundTextStyle": "light",

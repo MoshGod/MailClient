@@ -1,0 +1,17 @@
+<view class="subject">
+  <text style="width: 20vw">主题：</text>
+  <input class='input' type="text" value='{{subject}}' bindinput="bindOnSubject" name="subject" value="" placeholder="请输入邮件主题" maxlength="30"
+    size="100"/>
+</view>
+<view class="reciever">
+  <text style="width: 20vw">收件人：</text>
+  <input class='input'  type="text" value='{{reciever}}' bindinput="bindOnReciever" name="reciever" value="" placeholder="请输入收件人邮箱" maxlength="30"
+    size="100"/>
+</view>
+<view class="content">
+  <text style="width: 20vw">正文：</text>
+    <view class="textarea-wrp">
+      <textarea class='input-long' value='{{content}}' bindinput="bindOnContent" maxlength='-1' fixed='true' />
+    </view>
+</view>
+<button type="primary" bindtap='submitMail' style='margin-top:2vh'>完成</button>
