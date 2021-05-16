@@ -89,6 +89,13 @@ page {
   display: flex;
   flex-direction: row;
 }
+.time{
+  position: relative;
+  font-size: 25rpx;
+  word-break: break-all;
+  color: #353535;
+  margin-top: 10rpx
+}
 .subject {
   position: relative;
   font-size: 30rpx;

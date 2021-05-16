@@ -25,7 +25,7 @@
             <text>发件人：{{item.sender}}</text>
             <view class='not-read' wx:if="{{!item.isRead}}" style="color: red">(未读)</view>
           </view>
-          <text>{{item.time}}</text>
+          <text class='time'>{{item.time}}</text>
           <text class="subject">{{item.subject}}</text>
         </view>
       </view>
