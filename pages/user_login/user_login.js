@@ -62,6 +62,12 @@ Page({
           })
         } else {
           console.log("登录失败");
+          wx.showToast({
+            title: '登录失败，请验证登录信息是否正确',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          })
         }
         
       },
