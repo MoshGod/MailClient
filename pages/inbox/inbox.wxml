@@ -1,9 +1,9 @@
 <!--pages/inbox/inbox.wxml-->
-<navigation id='Navigation' title="收件箱"/>
+<navigation id='Navigation' title="收件箱" />
 <view style="potision: flex; height: {{windowHeight}}px;">
   <scroll-view scroll-y="true" style="height: 100vh;">
     <scroll-view scroll-x="true" class="nav " style="top: {{margin_top}}px">
-    <!-- 导航栏 -->
+      <!-- 导航栏 -->
       <view class='topTabSwiper'>
         <view class='tab1' data-current="0" bindtap='checkCurrent'>
           <view data-current="0" class='{{currentData == 0 ? "tab-title-select" : "tab-title"}}'>全部</view>
@@ -20,11 +20,12 @@
     <!-- 切换0全部的内容 -->
     <view class='one-page' wx:if="{{currentData==0}}">
       <view bindtap="click" wx:for="{{rev_mail_list}}" wx:key="index" id="{{index}}">
-        <view class="mail-item" >
+        <view class="mail-item">
           <view class="isRead-sender">
+            <text>发件人：{{item.sender}}</text>
             <view class='not-read' wx:if="{{!item.isRead}}" style="color: red">(未读)</view>
-            <text>{{item.sender}}</text>
           </view>
+          <text class='time'>{{item.time}}</text>
           <text class="subject">{{item.subject}}</text>
         </view>
       </view>

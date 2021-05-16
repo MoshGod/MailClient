@@ -4,19 +4,44 @@ page {
   width: 100%;
   height: auto;
   background: rgb(245, 245, 245);
+  display: block;
 }
-.subject{
-  position: relative;
-  font-weight:bold;
-  font-size: 250%;
-  color: rgb(8, 8, 8);
+.container{
+  display: flex;
+  align-items: flex-start;
+  /* flex-direction: row; */
+  justify-items: center;
+  border-radius:20px;
+  border:2px solid #DBDBDB;
+  margin-top: 2%;
+  padding: 0 25rpx;
+  background-color: #fff;
 }
 .sender{
+  padding-top: 1vh;
   position: relative;
-  color: rgb(65, 65, 65);
+  font-weight:bold;
+  font-size: 150%;
+  color: rgb(0, 0, 0);
+}
+.receiver,.time{
+  position: relative;
+  color: rgb(85, 85, 85);
+}
+.line {
+  padding-top: 1vh;
+  border-bottom: 5rpx solid #D7D7D7;
+  width: 100%;
+}
+.subject{
+  padding-top: 1vh;
+  position: relative;
+  font-weight:bold;
+  font-size: 200%;
+  color: rgb(8, 8, 8);
 }
 .content{
-  margin-top: 2vh;
+  padding-bottom: 1vh;
   position: relative;
   font-size: 150%;
 }
