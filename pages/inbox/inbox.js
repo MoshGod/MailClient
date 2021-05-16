@@ -84,16 +84,36 @@ Page({
     console.log("按了：", e.currentTarget.id)
     console.log(this.data.rev_mail_list[e.currentTarget.id])
     var that = this;
-    //暫時先這樣
+    // 修改双向绑定数据为已读
     let isRead = 'rev_mail_list[' + e.currentTarget.id + '].isRead'
     that.setData({
       [isRead]: 1
+    })
+
+    // 修改数据库数据为已读
+    let str = ''
+    str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="isRead"' + '\r\n' + '\r\n' + '1' +
+        '\r\n--XXX'
+    str += '--'  // 这里必须是以它结尾
+    wx.request({
+      url: app.globalData.serverIp + 'mails/' + that.data.rev_mail_list[e.currentTarget.id].mailNo + '/',
+      method: "PUT",
+      header: {
+        'content-type': 'multipart/form-data;boundary=XXX'
+      },
+      data: str,
+      success: function(res) {
+        console.log('邮件修改为已读成功')
+      },
+      fail: function(res) {
+        console.log('邮件修改为已读失败')
+      }
     })
     wx.navigateTo({
        url: '/pages/mail-item/mail-item?mailNo=' + that.data.rev_mail_list[e.currentTarget.id].mailNo,
      })
   },
-  //全部与未读的点击切换，滑块index赋值
+  // 全部与未读的点击切换，滑块index赋值
   checkCurrent: function(e) {
     console.log('点击切换')
     const that = this;

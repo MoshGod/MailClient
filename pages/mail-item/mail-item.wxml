@@ -9,9 +9,9 @@
     style="width: 97vw; height: auto; display: flex; box-sizing: border-box; margin-left: 1.5vw; top: NaNrpx">
     <text class='sender'>{{mailItem.sender}}</text>
     <text class='receiver'>收件人：{{mailItem.receiver}}</text>
-    <text class='time'>时间：{{mailItem.time}}</text>
+    <text class='time'>时间：{{mailItem.rendOrReceiptDate}}</text>
     <view class="line"></view>
-    <text class='subject'>{{mailItem.subject}}</text>
+    <text class='subject'>主题：{{mailItem.subject}}</text>
     <text class='content'>{{mailItem.content}}</text>
   </view>
 </view>
