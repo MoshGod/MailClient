@@ -37,7 +37,9 @@ Page({
       margin_top: app.globalData.titleBarHeight+app.globalData.statusBarHeight,
       windowHeight: app.globalData.windowHeight,
       mailItem: {
-        id: 1,
+        mailNo: 1,
+        receiver: 'moshgod@index.cn',
+        time: '2021-01-06 19:47',
         subject: 'hello',
         sender: 'cbowu@index.cn',
         content: 'hello world!'
