@@ -9,7 +9,7 @@ Page({
     modalHidden:true,//是否隐藏对话框
     margin_top: 0,
     windowHeight: 0,
-
+    mailNo: -1,
     mailItem: {},
   },
   modalBindaconfirm:function(){
@@ -33,14 +33,60 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     this.setData({
       margin_top: app.globalData.titleBarHeight+app.globalData.statusBarHeight,
       windowHeight: app.globalData.windowHeight,
-      mailItem: {
-        id: 1,
-        subject: 'hello',
-        sender: 'cbowu@index.cn',
-        content: 'hello world!'
+      // mailItem: {
+      //   id: 1,
+      //   subject: 'hello',
+      //   sender: 'cbowu@index.cn',
+      //   content: 'hello world!'
+      // },
+      mailNo: options.mailNo
+
+    })
+    let str = ''
+    for (let key in that.data) {
+        str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + key + '"' + '\r\n' + '\r\n' + that.data[key] +
+            '\r\n--XXX'
+    }
+    str += '--'  // 这里必须是以它结尾
+    wx.request({
+      url: app.globalData.serverIp + 'getmail/',
+      method: "POST",
+      header: {
+        'content-type': 'multipart/form-data;boundary=XXX'
+      },
+      data: str,
+      success:function (res) {
+        console.log(JSON.stringify(res.data))
+        console.log("响应状态码: " + res.data.status);
+        console.log("响应数据: ", res.data.message);
+        
+        wx.showToast({
+          title: '邮件获取成功!',
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        }) 
+        that.setData({
+          mailItem: res.data.data
+        })
+        console.log(that.data.rev_mail_list)
+        console.log(res.data.data)
+      },
+      fail: function (res) {
+        console.log("邮件列表获取失败");
+        // wx.navigateTo({
+        //   url: '../user_login/user_login',
+        // })
+        wx.showToast({
+          title: '邮件获取失败',
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        })
       }
     })
 

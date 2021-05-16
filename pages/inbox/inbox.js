@@ -15,58 +15,67 @@ Page({
     scrollTop: '', //滑动的距离
     navFixed: "true", //导航是否固定
     currentData: 0,
+    userName: '',
+    password: '',
 //id isRead sender subject
 //example
-    rev_mail_list: [
-      {
-        id: 1,
-        isRead: true,
-        sender: '芒果',
-        subject: "我是张三，见到大家很高兴。。。"
-      }, 
-      {
-        id: 2,
-        isRead: false,
-        sender: '香蕉',
-        subject: "我是李四，可以带大将去玩。。。。"
-  
-      },
-      {
-        id: 3,
-        isRead: true,
-        sender: '苹果',
-        subject: "我是王五，我编码贼好。。。。"
-  
-      },
-      {
-        id: 4,
-        isRead: true,
-        sender: '芒果',
-        subject: "我是张三，见到大家很高兴。。。"
-      }, 
-      {
-        id: 5,
-        isRead: false,
-        sender: '香蕉',
-        subject: "我是李四，可以带大将去玩。。。。"
-      },
-      {
-        id: 8,
-        isRead: false,
-        sender: '苹果',
-        subject: "我是王五，我编码贼好。。。。"
-      }  
-    ],
+    rev_mail_list: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-        this.setData({
-          margin_top: app.globalData.titleBarHeight+app.globalData.statusBarHeight,
-          windowHeight: app.globalData.windowHeight
+    var that = this;
+    this.setData({
+      margin_top: app.globalData.titleBarHeight+app.globalData.statusBarHeight,
+      windowHeight: app.globalData.windowHeight,
+      userName: options.username,
+      password: options.password
+    })
+    let str = ''
+    for (let key in that.data) {
+        str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + key + '"' + '\r\n' + '\r\n' + that.data[key] +
+            '\r\n--XXX'
+    }
+    str += '--'  // 这里必须是以它结尾
+    wx.request({
+      url: app.globalData.serverIp + 'getmaillist/',
+      method: "POST",
+      header: {
+        'content-type': 'multipart/form-data;boundary=XXX'
+      },
+      data: str,
+      success:function (res) {
+        console.log(JSON.stringify(res.data))
+        console.log("响应状态码: " + res.data.status);
+        console.log("响应数据: ", res.data.message);
+        
+        wx.showToast({
+          title: '邮件获取成功!',
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        }) 
+        that.setData({
+          rev_mail_list: JSON.parse(res.data.data)
         })
+        console.log(that.data.rev_mail_list)
+        console.log(res.data.data)
+      },
+      fail: function (res) {
+        console.log("邮件列表获取失败");
+        // wx.navigateTo({
+        //   url: '../user_login/user_login',
+        // })
+        wx.showToast({
+          title: '邮件获取失败',
+          icon: 'none',
+          duration: 1000,
+          mask: true
+        })
+      }
+    })
   },
 
 
@@ -74,9 +83,14 @@ Page({
   click: function (e) { 
     console.log("按了：", e.currentTarget.id)
     console.log(this.data.rev_mail_list[e.currentTarget.id])
+    var that = this;
     //暫時先這樣
+    let isRead = 'rev_mail_list[' + e.currentTarget.id + '].isRead'
+    that.setData({
+      [isRead]: 1
+    })
     wx.navigateTo({
-       url: '/pages/mail-item/mail-item',
+       url: '/pages/mail-item/mail-item?mailNo=' + that.data.rev_mail_list[e.currentTarget.id].mailNo,
      })
   },
   //全部与未读的点击切换，滑块index赋值
