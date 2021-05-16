@@ -1,4 +1,5 @@
 
+var util = require('../../utils/util.js')
 const app = getApp()
 Page({
 
@@ -76,6 +77,15 @@ Page({
         })
       }
     })
+    //格式化时间
+    
+    let datas = this.data.rev_mail_list
+    for (var index in datas) {
+      this.data.rev_mail_list[index].time = util.formatTime(nthis.data.rev_mail_list[index].time)
+      this.setData({
+        rev_mail_list: this.data.rev_mail_list
+      })
+    }
   },
 
 
