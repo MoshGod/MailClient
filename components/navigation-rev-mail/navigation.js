@@ -28,9 +28,10 @@ Component({
   },
 
   methods: {//to be modified
-    headerSet() {
-      // wx.navigateBack({
-      // })
+    headerSendmail() {
+      wx.navigateTo({
+        url: '/pages/outbox/outbox'
+      })
     },
     headerWrite() {
       wx.navigateTo({

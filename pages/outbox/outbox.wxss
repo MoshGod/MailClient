@@ -1,0 +1,49 @@
+/* pages/inbox/inbox.wxss */
+
+page {
+  width: 100%;
+  height: auto;
+  background: rgb(245, 245, 245);
+}
+.mail-item {
+  position: relative;
+  width: 85vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  /* 圆角 */
+  border-radius: 20rpx;
+
+  /* 边 */
+  border: 3rpx solid #E0E3DA;
+  box-shadow:5rpx 5rpx 5rpx 5rpx #E0E3DA;
+
+  background-color: #ffffff;
+  margin: 30rpx;
+
+  /* padding使得文字和图片不至于贴着边框 */
+  padding: 30rpx;
+}
+.not-read-item{
+  display: none;
+}
+.isRead-sender{
+  display: flex;
+  flex-direction: row;
+}
+.time{
+  position: relative;
+  font-size: 25rpx;
+  word-break: break-all;
+  color: #353535;
+  margin-top: 10rpx
+}
+.subject {
+  position: relative;
+  font-size: 30rpx;
+  word-break: break-all;
+  color: #7a7878;
+  margin-top: 10rpx
+}
