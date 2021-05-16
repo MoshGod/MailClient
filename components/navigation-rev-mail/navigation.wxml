@@ -1,8 +1,8 @@
 <view style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
   <view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
     <view wx:if="{{showIcon}}" class="title-bar">
-      <view class="setting" bindtap="headerSet">
-        <i class="iconfont icon-setting"></i>
+      <view class="send-mails" bindtap="headerSendmail">
+        <i class="iconfont icon-Sendfile"></i>
       </view>
       <view class="line"></view>
       <view class="write" bindtap="headerWrite">
