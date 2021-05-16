@@ -1,5 +1,0 @@
-<!--components/inputComponent/inputComponent.wxml-->
-<view class="input">
-  <text style="color: rgb(255, 255, 255)">{{title_name}}：</text>
-  <input class="inputframe" bindinput="getInputValue" password='{{isPassword}}' placeholder='{{placeholder}}'/>
-</view>

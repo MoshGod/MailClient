@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "navigation": "../../components/navigation-rev-mail/navigation"
+  },
+  "navigationStyle": "custom"
+}

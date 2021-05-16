@@ -1,14 +1,17 @@
 {
   "pages": [
     "pages/user_login/user_login",
+    "pages/inbox/inbox",
+    "pages/sign_up/sign_up",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/sign_up/sign_up"
+    "pages/mail-item/mail-item",
+    "pages/submit-mail/submit-mail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "邮件系统",
     "navigationBarTextStyle": "black"
   },
   "style": "v2",

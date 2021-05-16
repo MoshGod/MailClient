@@ -1,0 +1,98 @@
+/* pages/inbox/inbox.wxss */
+
+page {
+  width: 100%;
+  height: auto;
+  background: rgb(245, 245, 245);
+}
+.nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: white;
+  z-index: 99;
+  box-shadow: 0rpx -1.2rpx 10rpx 4rpx #dddddd99; /*for Android*/
+  -webkit-box-shadow: 0px -0.6px 5px 2px #dddddd99;
+}
+
+/* 这个属性特别重要！！不然样式会崩掉 */
+.topTabSwiper:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+.tab1 {
+  width: 50vw;
+  float: left;
+  text-align: center;
+  padding: 10rpx 0;
+  height: 5.2vh;
+  line-height: 4.6vh;
+  /* line-height: 4.6vh; */
+}
+.tab2 {
+  width: 50vw;
+  float: right;
+  text-align: center;
+  padding: 10rpx 0;
+  height: 5.2vh;
+  line-height: 4.6vh;
+  /* line-height: 4.6vh; */
+}
+.tab-title-select {
+  color: lightcoral;
+  font-size: 32rpx;
+}
+.tab-title {
+  font-size: 32rpx;
+}
+.tab-line {
+  width: 20vw;
+  border-bottom: 6rpx solid lightcoral;
+  margin-left: 15vw;/*（48-10)/2让红线处在选项的中间*/
+  margin-top: 1vh;
+  margin-bottom: 0.2vh;
+}
+.one-page {
+  position: relative;
+  margin-top: 8vh;
+}
+.two-page{
+  position: relative;
+  margin-top: 8vh;
+}
+.mail-item {
+  position: relative;
+  width: 85vw;
+  height: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  /* 圆角 */
+  border-radius: 20rpx;
+
+  /* 边 */
+  border: 3rpx solid #E0E3DA;
+  box-shadow:5rpx 5rpx 5rpx 5rpx #E0E3DA;
+
+  background-color: #ffffff;
+  margin: 30rpx;
+
+  /* padding使得文字和图片不至于贴着边框 */
+  padding: 30rpx;
+}
+.not-read-item{
+  display: none;
+}
+.isRead-sender{
+  display: flex;
+  flex-direction: row;
+}
+.subject {
+  position: relative;
+  font-size: 30rpx;
+  word-break: break-all;
+  color: #7a7878;
+  margin-top: 10rpx
+}

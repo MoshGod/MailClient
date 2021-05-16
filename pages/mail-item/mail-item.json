@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "navigation": "../../components/navigation-mail-item/navigation"
+  },
+  "navigationStyle": "custom"
+}
