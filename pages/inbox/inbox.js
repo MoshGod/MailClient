@@ -30,15 +30,12 @@ Page({
     var that = this;
     this.setData({
       margin_top: app.globalData.titleBarHeight+app.globalData.statusBarHeight,
-      windowHeight: app.globalData.windowHeight,
-      userName: options.username,
-      password: options.password
+      windowHeight: app.globalData.windowHeight
     })
+    console.log(app.globalData.userInfo.username)
     let str = ''
-    for (let key in that.data) {
-        str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + key + '"' + '\r\n' + '\r\n' + that.data[key] +
-            '\r\n--XXX'
-    }
+    str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="' + 'userName' + '"' + '\r\n' + '\r\n' + app.globalData.userInfo.username +
+        '\r\n--XXX'
     str += '--'  // 这里必须是以它结尾
     wx.request({
       url: app.globalData.serverIp + 'getmaillist/',
@@ -52,15 +49,33 @@ Page({
         console.log("响应状态码: " + res.data.status);
         console.log("响应数据: ", res.data.message);
         
-        wx.showToast({
-          title: '邮件获取成功!',
-          icon: 'none',
-          duration: 1000,
-          mask: true
-        }) 
-        that.setData({
-          rev_mail_list: JSON.parse(res.data.data)
-        })
+        if (res.data.status == "200")  {
+          wx.showToast({
+            title: '邮件获取成功!',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          }) 
+          that.setData({
+            rev_mail_list: JSON.parse(res.data.data)
+          })
+          for (let i=0;i<that.data.rev_mail_list.length;i++)
+          {
+            that.data.rev_mail_list[i].time = that.data.rev_mail_list[i].time.split("+")[0];
+          }
+          that.setData({
+            rev_mail_list: that.data.rev_mail_list
+          })
+        } else {
+          wx.showToast({
+            title: '邮件列表获取失败',
+            icon: 'none',
+            duration: 1000,
+            mask: true
+          })
+        }
+        
+        
         console.log(that.data.rev_mail_list)
         console.log(res.data.data)
       },
@@ -77,15 +92,6 @@ Page({
         })
       }
     })
-    //格式化时间
-    
-    let datas = this.data.rev_mail_list
-    for (var index in datas) {
-      this.data.rev_mail_list[index].time = util.formatTime(nthis.data.rev_mail_list[index].time)
-      this.setData({
-        rev_mail_list: this.data.rev_mail_list
-      })
-    }
   },
 
 

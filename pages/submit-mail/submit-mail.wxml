@@ -5,7 +5,7 @@
 </view>
 <view class="reciever">
   <text style="width: 20vw">收件人：</text>
-  <input class='input'  type="text" value='{{reciever}}' bindinput="bindOnReciever" name="reciever" value="" placeholder="请输入收件人邮箱" maxlength="30"
+  <input class='input'  type="text" value='{{receiver}}' bindinput="bindOnReciever" name="reciever" value="" placeholder="请输入收件人邮箱" maxlength="30"
     size="100"/>
 </view>
 <view class="content">
@@ -14,4 +14,4 @@
       <textarea class='input-long' value='{{content}}' bindinput="bindOnContent" maxlength='-1' fixed='true' />
     </view>
 </view>
-<button type="primary" bindtap='submitMail' style='margin-top:2vh'>完成</button>
+<button type="primary" bindtap='submitMail' style='margin-top:2vh'>发送</button>

@@ -36,6 +36,7 @@
       <view bindtap="click" wx:for="{{rev_mail_list}}" wx:key="index" id="{{index}}">
         <view class='{{item.isRead?"not-read-item" : "mail-item" }}'>
           <text>{{item.sender}}</text>
+          <text class='time'>{{item.time}}</text>
           <text class="subject">{{item.subject}}</text>
         </view>
       </view>

@@ -16,11 +16,11 @@
   </view>
   <view class="input2" style="top:{{windowHeight/3}}rpx">
     <text style="color: rgb(255, 255, 255)">密码：</text>
-    <input class="inputframe" password="true" value="{{pass1}}" bindinput='pass1_input' placeholder='请输入登录密码'/>
+    <input class="inputframe" password="true" value="{{password}}" bindinput='pass1_input' placeholder='请输入登录密码'/>
   </view>
   <view class="input3" style="top:{{windowHeight/3}}rpx">
     <text style="color: rgb(255, 255, 255)">确认密码：</text>
-    <input class="inputframe" password="true" value="{{pass2}}" bindinput='pass2_input' placeholder='请确认登录密码'/>
+    <input class="inputframe" password="true" value="{{password2}}" bindinput='pass2_input' placeholder='请确认登录密码'/>
   </view>
   <view class="btn" style="top:{{windowHeight/3}}rpx">
     <button type="primary" bindtap='sign_up'>注册</button>

@@ -56,9 +56,11 @@ Page({
         console.log("响应数据: ", res.data.message);
         // app.globalData.token = res.data.token;
         // app.globalData.userinfo = res.data.userinfo;
+        app.globalData.userInfo.username = that.data.username
+        app.globalData.userInfo.password = that.data.password
         if (res.data.status == 200){
             wx.navigateTo({
-            url: '../inbox/inbox?username=' + that.data.username + '&password=' + that.data.password
+            url: '../inbox/inbox'
           })
         } else {
           console.log("登录失败");
@@ -68,6 +70,11 @@ Page({
             duration: 1000,
             mask: true
           })
+          that.setData({
+            username: '',
+            password: ''
+          })
+          
         }
         
       },

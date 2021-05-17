@@ -1,7 +1,7 @@
 <!--pages/inbox/inbox.wxml-->
 <navigation id='Navigation' bind:syncEnsure="onSyncEnsure" />
 <view style="display: flex;flex-direction: column; height: {{windowHeight}}px;">
-  <modal title="对话框" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm"
+  <modal title="确定要删除吗" hidden="{{modalHidden}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalBindaconfirm"
     bindcancel="modalBindcancel">
     {{data.showWindows.Content}}
   </modal>

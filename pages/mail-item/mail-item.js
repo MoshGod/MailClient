@@ -13,8 +13,42 @@ Page({
     mailItem: {},
   },
   modalBindaconfirm:function(){
+    var that = this
     this.setData({
       modalHidden:!this.data.modalHidden,
+    })
+    let str = ''
+    str += '\r\n--XXX' + '\r\nContent-Disposition:form-data;name="isRead"' + '\r\n' + '\r\n' + '1' +
+        '\r\n--XXX'
+    str += '--'  // 这里必须是以它结尾
+    wx.request({
+      url: app.globalData.serverIp + 'mails/' + that.data.mailNo + '/',
+      method: "DELETE",
+      header: {
+        'content-type': 'multipart/form-data;boundary=XXX'
+      },
+      data: str,
+      success: function(res) {
+        
+
+        console.log('邮件删除成功')
+        wx.showToast({
+          title: '邮件删除成功',
+          icon: 'none',
+          duration: 1000,
+          mask: true,
+          success: function(e){
+            setTimeout(function(){
+              wx.navigateTo({
+                url: '/pages/inbox/inbox'
+              })
+            }, 1000)
+          }
+        })
+      },
+      fail: function(res) {
+        console.log('邮件修改为已读失败')
+      }
     })
   },
   //取消按钮点击事件(关闭弹出)
@@ -73,7 +107,12 @@ Page({
         that.setData({
           mailItem: res.data.data
         })
-        console.log(that.data.rev_mail_list)
+        that.data.mailItem.rendOrReceiptDate = that.data.mailItem.rendOrReceiptDate.replace('T',' ')
+        that.data.mailItem.rendOrReceiptDate = that.data.mailItem.rendOrReceiptDate.replace('Z',' ')
+        that.setData({
+          mailItem: that.data.mailItem
+        })
+        console.log(that.data.mailItem)
         console.log(res.data.data)
       },
       fail: function (res) {

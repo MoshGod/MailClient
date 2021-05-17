@@ -3,11 +3,11 @@
     <view bindtap="click" wx:for="{{rev_mail_list}}" wx:key="index" id="{{index}}">
       <view class="mail-item">
         <view class="isRead-sender">
-          <text>发件人：{{item.sender}}</text>
-          <view class='not-read' wx:if="{{!item.isRead}}" style="color: red">(未读)</view>
+          <text>收件人：{{item.receiver}}</text>
+          <view class='not-read' wx:if="{{!item.isRead}}" style="color: red"></view>
         </view>
-        <text class='time'>{{item.time}}</text>
-        <text class="subject">{{item.subject}}</text>
+        <text class='time'>时间：{{item.time}}</text>
+        <text class="subject">主题：{{item.subject}}</text>
       </view>
     </view>
   </scroll-view>

@@ -11,7 +11,8 @@ App({
       expirationTime: ''
     },
     userInfo: {
-      userId: '',
+      username: '',
+      password: ''
     },
     // hasLogin: false,
     // openid: null

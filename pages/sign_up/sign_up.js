@@ -8,8 +8,8 @@ Page({
    */
   data: {
     username:'',
-    pass1:'',
-    pass2:'',
+    password:'',
+    password2:'',
     windowHeight:'',
     windowWidth:'',
   },
@@ -20,12 +20,12 @@ Page({
   },
   pass1_input: function (e){
     this.setData({
-      pass1:e.detail.value,
+      password:e.detail.value,
     })
   },
   pass2_input: function (e){
     this.setData({
-      pass2:e.detail.value,
+      password2:e.detail.value,
     })
   },
   // sign_up: function (e){
@@ -104,24 +104,22 @@ Page({
     var that = this;
     console.log(app.globalData.serverIp + 'signup/');
     // 校验表单是否填写完整
-    if (that.data.username == "" || that.data.pass1 == "" || that.data.pass2 == ""){
-      wx.showModal({
-        title: '错误',
-        content: '请填写完整所有信息',
-        success: function (e) {
-          if (e.confirm) {
-              that.setData({
-                username: '',
-                pass1: '',
-                pass2: '',
-              })
-          }
-        }
+    if (that.data.username == "" || that.data.password == "" || that.data.password2 == ""){
+      wx.showToast({
+        title: '请填写完整所有信息',
+        icon: 'none',
+        duration: 1000,
+        mask: true
+      })
+      that.setData({
+        username: '',
+        password: '',
+        password2: '',
       })
       return
     }
     // 校验邮箱
-    var reg = /^\w+@[a-zA-Z0-9]{2,10}(?:\.[a-z]{2,4}){1,3}$/
+    var reg = /^\w+@test.com$/
 
     if (reg.test(that.data.username)) {
       console.log('邮箱校验成功:', that.data.username);
@@ -134,8 +132,8 @@ Page({
           if (e.confirm) {
               that.setData({
               username: '',
-              pass1: '',
-              pass2: '',
+              password: '',
+              password2: '',
             })
           }
         }
@@ -143,15 +141,15 @@ Page({
       return 
     }
     // 检验两次输入密码是否相同
-    if (that.data.pass1 != that.data.pass2) {
+    if (that.data.password != that.data.password2) {
       wx.showModal({
         title: '错误',
         content: '两次输入密码不一致',
         success: function (e) {
           if (e.confirm) {
               that.setData({
-                pass1: '',
-                pass2: '',
+                password: '',
+                password2: '',
               })
           }
         }
@@ -185,11 +183,16 @@ Page({
           title: '注册成功！',
           icon: 'none',
           duration: 1000,
-          mask: true
+          mask: true,
+          success: function(e){
+            setTimeout(function(){
+              wx.navigateTo({
+                url: '../user_login/user_login',
+              })
+            }, 1000)
+          }
         }) 
-        wx.navigateTo({
-          url: '../user_login/user_login',
-        })
+        
       },
       fail: function (res) {
         console.log("注册失败");
